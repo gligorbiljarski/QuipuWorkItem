@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Clients>
+    <Client>
+        <FirstName>John</FirstName>
+        <LastName>Doe</LastName>
+        <Email>john.doe@example.com</Email>
+        <DateOfBirth>1980-01-01</DateOfBirth>
+    </Client>
+    <Client>
+        <FirstName>Jane</FirstName>
+        <LastName>Smith</LastName>
+        <Email>jane.smith@example.com</Email>
+        <DateOfBirth>1990-02-02</DateOfBirth>
+    </Client>
+</Clients>

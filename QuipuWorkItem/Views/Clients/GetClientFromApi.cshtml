@@ -1,0 +1,22 @@
+﻿@model QuipuWorkItem.Models.Client
+
+@{
+    ViewBag.Title = "Client Details";
+}
+
+<h2>Client Details</h2>
+
+<dl class="dl-horizontal">
+    <dt>First Name</dt>
+    <dd>@Model.FirstName</dd>
+    <dt>Last Name</dt>
+    <dd>@Model.LastName</dd>
+    <dt>Email</dt>
+    <dd>@Model.Email</dd>
+    <dt>Birth Date</dt>
+    <dd>@Model.BirthDate.ToShortDateString()</dd>
+</dl>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
