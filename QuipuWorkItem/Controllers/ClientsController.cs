@@ -25,6 +25,23 @@ namespace QuipuWorkItem.Controllers
             return View(clients); // Return the view with the "clients" model
         }
 
+        // GET: Clients/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Client client = db.Clients.Find(id);
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(client);
+        }
+
         // GET: Clients/Create
         public ActionResult Create()
         {
@@ -34,10 +51,16 @@ namespace QuipuWorkItem.Controllers
         // POST: Clients/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Email,BirthDate")] Client client)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Email,BirthDate,Address")] Client client)
         {
             if (ModelState.IsValid)
             {
+                // Ensure Address has a default value if it's not provided
+                if (string.IsNullOrEmpty(client.Address))
+                {
+                    client.Address = "Default Address"; // Provide a default address or handle accordingly
+                }
+
                 db.Clients.Add(client);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -46,41 +69,28 @@ namespace QuipuWorkItem.Controllers
             return View(client);
         }
 
-        // GET: Clients/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
-        }
-
-
         // GET: Clients/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Client client = db.Clients.Find(id);
             if (client == null)
             {
                 return HttpNotFound();
             }
+
             return View(client);
         }
 
-        // POST: Clients/Edit/5
+        // POST: Clients/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Email,BirthDate")] Client client)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Email,BirthDate,Address")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -88,6 +98,7 @@ namespace QuipuWorkItem.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(client);
         }
 
@@ -99,6 +110,7 @@ namespace QuipuWorkItem.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(client);
         }
 
@@ -108,13 +120,15 @@ namespace QuipuWorkItem.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Client client = db.Clients.Find(id);
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+
             db.Clients.Remove(client);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
-
 
         // GET: Clients/UploadXml
         public ActionResult UploadXml()
@@ -137,20 +151,19 @@ namespace QuipuWorkItem.Controllers
 
                     var clients = xDocument.Descendants("Client").Select(x => new Client
                     {
-                        // Handle null cases and correct XML element names
-                        FirstName = (string)x.Element("FirstName"),
-                        LastName = (string)x.Element("LastName"),
-                        Email = (string)x.Element("Email"),
-                        BirthDate = (DateTime)(DateTime?)x.Element("DateOfBirth") // Use nullable DateTime to handle parsing errors
+                        FirstName = (string)x.Element("Name"),
+                        LastName = "N/A", // Assuming LastName is not provided in the XML
+                        Email = "N/A", // Assuming Email is not provided in the XML
+                        BirthDate = (DateTime?)x.Element("BirthDate") ?? DateTime.MinValue, // Handle nullable DateTime
+                        Address = string.Join(", ", x.Descendants("Address").Select(a => (string)a).ToList())
                     }).ToList();
 
                     foreach (var client in clients)
                     {
-                        if (client.BirthDate == null) // Skip clients with invalid date
+                        if (client.BirthDate != DateTime.MinValue) // Skip clients with invalid date
                         {
-                            continue;
+                            db.Clients.Add(client);
                         }
-                        db.Clients.Add(client);
                     }
 
                     db.SaveChanges();
@@ -196,11 +209,9 @@ namespace QuipuWorkItem.Controllers
             catch (Exception ex)
             {
                 // Log the exception or handle it as needed
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.InternalServerError, $"Error exporting data: {ex.Message}");
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, $"Error exporting data: {ex.Message}");
             }
         }
-
-
 
         protected override void Dispose(bool disposing)
         {

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Models/Client.cs
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace QuipuWorkItem.Models
@@ -8,16 +8,20 @@ namespace QuipuWorkItem.Models
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "First Name is required")]
+        [Required]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Last Name is required")]
+        [Required]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Email is required")]
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
+
+        public string Address { get; set; }
     }
 }
