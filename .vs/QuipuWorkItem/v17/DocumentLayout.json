@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\F5tech\\source\\repos\\QuipuWork\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{56720E86-0501-425B-9A91-8F7A9253400C}|QuipuWorkItem\\QuipuWorkItem.csproj|c:\\users\\f5tech\\source\\repos\\quipuwork\\quipuworkitem\\views\\clients\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56720E86-0501-425B-9A91-8F7A9253400C}|QuipuWorkItem\\QuipuWorkItem.csproj|solutionrelative:quipuworkitem\\views\\clients\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56720E86-0501-425B-9A91-8F7A9253400C}|QuipuWorkItem\\QuipuWorkItem.csproj|c:\\users\\f5tech\\source\\repos\\quipuwork\\quipuworkitem\\views\\clients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56720E86-0501-425B-9A91-8F7A9253400C}|QuipuWorkItem\\QuipuWorkItem.csproj|solutionrelative:quipuworkitem\\views\\clients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56720E86-0501-425B-9A91-8F7A9253400C}|QuipuWorkItem\\QuipuWorkItem.csproj|c:\\users\\f5tech\\source\\repos\\quipuwork\\quipuworkitem\\views\\clients\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{56720E86-0501-425B-9A91-8F7A9253400C}|QuipuWorkItem\\QuipuWorkItem.csproj|solutionrelative:quipuworkitem\\views\\clients\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +22,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\F5tech\\source\\repos\\QuipuWork\\QuipuWorkItem\\Views\\Clients\\Create.cshtml",
+              "RelativeDocumentMoniker": "QuipuWorkItem\\Views\\Clients\\Create.cshtml",
+              "ToolTip": "C:\\Users\\F5tech\\source\\repos\\QuipuWork\\QuipuWorkItem\\Views\\Clients\\Create.cshtml",
+              "RelativeToolTip": "QuipuWorkItem\\Views\\Clients\\Create.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-26T09:24:35.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\F5tech\\source\\repos\\QuipuWork\\QuipuWorkItem\\Views\\Clients\\Edit.cshtml",
+              "RelativeDocumentMoniker": "QuipuWorkItem\\Views\\Clients\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\F5tech\\source\\repos\\QuipuWork\\QuipuWorkItem\\Views\\Clients\\Edit.cshtml",
+              "RelativeToolTip": "QuipuWorkItem\\Views\\Clients\\Edit.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-26T09:23:55.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\F5tech\\source\\repos\\QuipuWork\\QuipuWorkItem\\Views\\Clients\\Details.cshtml",
+              "RelativeDocumentMoniker": "QuipuWorkItem\\Views\\Clients\\Details.cshtml",
+              "ToolTip": "C:\\Users\\F5tech\\source\\repos\\QuipuWork\\QuipuWorkItem\\Views\\Clients\\Details.cshtml",
+              "RelativeToolTip": "QuipuWorkItem\\Views\\Clients\\Details.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC8AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T14:09:17.721Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
